@@ -1,0 +1,205 @@
+/* LowCheck: a hand-checked price ledger look — cream paper, ink type,
+   red price ink, and rubber-stamp verdicts. No webfonts, no images:
+   everything renders from this file and the system font stacks. */
+
+:root {
+  --paper: #faf5ea;
+  --card: #fffdf6;
+  --ink: #1d1a14;
+  --muted: #6f675a;
+  --line: #ddd2ba;
+  --red: #b3231b;
+  --green: #1e7a3c;
+  --amber: #9a6a00;
+  --blue: #20508f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.45;
+}
+
+.masthead {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 20px 8px;
+  border-bottom: 3px double var(--ink);
+}
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: var(--red);
+  font-weight: 700;
+}
+.masthead h1 {
+  margin: 2px 0 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 52px;
+  letter-spacing: -0.01em;
+}
+.tagline { margin: 0 0 14px; max-width: 720px; color: var(--muted); font-size: 16px; }
+
+main { max-width: 1120px; margin: 0 auto; padding: 16px 20px 8px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.stats div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: center;
+}
+.stats strong { display: block; font-family: Georgia, serif; font-size: 26px; color: var(--red); }
+.stats span { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+
+.controls {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.search { display: block; font-weight: 600; font-size: 13px; margin-bottom: 10px; }
+.search input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 10px;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+.chip-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0; }
+.chip-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-right: 4px; }
+.chip {
+  padding: 4px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  background: transparent;
+}
+.chip-active { background: var(--ink); color: var(--paper); font-weight: 700; }
+.select-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 8px; font-size: 14px; }
+.select-row select { font-size: 14px; padding: 4px; margin-left: 4px; }
+.count { margin-left: auto; font-weight: 700; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--ink);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.card-top { display: flex; align-items: center; gap: 8px; }
+.store-chip {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.cat { color: var(--muted); font-size: 13px; }
+.score { margin-left: auto; font-family: Georgia, serif; font-size: 22px; color: var(--red); }
+.score small { font-size: 12px; color: var(--muted); }
+.card h3 { margin: 10px 0 4px; font-size: 18px; line-height: 1.25; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.blurb { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+.price-row { display: flex; align-items: baseline; gap: 10px; }
+.price { font-family: Georgia, serif; font-size: 34px; color: var(--red); font-weight: 700; }
+.price-row.big .price { font-size: 46px; }
+.was { text-decoration: line-through; color: var(--muted); font-size: 17px; }
+.pct { background: var(--red); color: #fff; font-weight: 700; padding: 2px 8px; font-size: 15px; }
+.save { margin: 2px 0 8px; font-weight: 700; }
+.verdict { margin: 4px 0; }
+.stamp {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+  transform: rotate(-2deg);
+}
+.stamp-new-low { color: var(--green); }
+.stamp-strong-deal { color: var(--blue); }
+.stamp-good-price { color: var(--amber); }
+.stamp-modest-cut { color: var(--muted); }
+.evidence { font-size: 14px; margin: 6px 0; }
+.meta { font-size: 12.5px; color: var(--muted); margin: 6px 0 10px; }
+.card-actions { margin-top: auto; display: flex; gap: 10px; align-items: center; }
+.buy {
+  background: var(--red);
+  color: #fff;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.details { color: var(--ink); }
+
+.compare { margin-top: 26px; }
+.compare h2, .how h2 { font-family: Georgia, serif; font-size: 26px; margin-bottom: 10px; }
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.compare-box { background: var(--card); border: 1px solid var(--line); padding: 14px; }
+.compare-box h3 { margin-top: 0; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.best { color: var(--green); font-weight: 800; text-transform: uppercase; font-size: 11.5px; }
+.compare-note { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+
+.how { margin-top: 26px; background: var(--card); border: 1px solid var(--line); padding: 6px 18px 14px; }
+.how li { margin: 6px 0; }
+.formula { color: var(--muted); font-size: 14px; }
+
+.detail { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--ink); padding: 18px; }
+.detail h2 { font-family: Georgia, serif; font-size: 30px; margin: 8px 0 4px; }
+.detail h3 { margin: 18px 0 4px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+.back a { color: var(--ink); font-weight: 700; }
+table.also tr.cheaper td { color: var(--green); font-weight: 600; }
+.detail-actions { margin-top: 16px; }
+.empty { padding: 30px 0; text-align: center; color: var(--muted); }
+
+.foot {
+  max-width: 1120px;
+  margin: 10px auto 0;
+  padding: 14px 20px 30px;
+  border-top: 3px double var(--ink);
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .compare-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .masthead h1 { font-size: 38px; }
+  .grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .price { font-size: 30px; }
+  .count { margin-left: 0; }
+}
